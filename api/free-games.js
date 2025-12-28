@@ -1,5 +1,7 @@
 import { EpicFreeGames } from 'epic-free-games';
 
+import { windowsToIana } from '../utils/timezone-mapper.js';
+
 export default async function handler(req, res) {
   try {
     const epic = new EpicFreeGames({
@@ -12,7 +14,7 @@ export default async function handler(req, res) {
 
     const url = new URL(req.url, `http://${req.headers.host}`);
     const tzParam = url.searchParams.get('tz');
-    const timezone = tzParam || 'UTC';
+    const timezone = windowsToIana[tzParam] || 'UTC';
 
     res.json({
       timestamp: new Date().toISOString(),
