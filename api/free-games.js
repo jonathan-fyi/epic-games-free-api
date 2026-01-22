@@ -32,7 +32,7 @@ export default async function handler(req, res) {
               minute: '2-digit'
             })
           : null,
-        url: game.productSlug ? `https://store.epicgames.com/en-US/p/${game.productSlug}` : null,
+        url: game.offerMappings ? `https://store.epicgames.com/en-US/p/${game.offerMappings[0]?.pageSlug}` : null,
         thumbnail: game.keyImages?.find(img => img.type === 'OfferImageWide')?.url || null
       }))
     });
