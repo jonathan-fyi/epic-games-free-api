@@ -12,5 +12,8 @@
   "type": "module",
   "dependencies": {
     "epic-free-games": "^4.1.4"
+  },
+  "devDependencies": {
+    "vercel": "^54.3.0"
   }
 }
